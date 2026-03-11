@@ -1,4 +1,5 @@
-import { Table } from "antd";
+import { Avatar, Table } from "antd";
+import { Image } from "antd";
 
 const columns = [
     {
@@ -17,6 +18,11 @@ const columns = [
         title: "Major",
         dataIndex: "major",
     },
+    {
+        title: "Avarta",
+        dataIndex: "avata",
+        render: (avatar: string) => <Image width={50} src={avatar} />,
+    },
 ]
 
 
@@ -27,6 +33,7 @@ const data = [
         name: "thanh cong",
         age: 18,
         major: "fe1",
+        Avatar
     },
     {
         key: 2,
@@ -60,6 +67,6 @@ const data = [
 
 export default function UserTable() {
     return (
-        <Table columns={columns} dataSource={data} />
+        <Table columns={columns} dataSource={data} pagination={{ pageSize: 3 }} />
     );
 }
