@@ -1,4 +1,4 @@
-import { Avatar, Table } from "antd";
+import { Table } from "antd";
 import { Image } from "antd";
 
 const columns = [
@@ -20,7 +20,7 @@ const columns = [
     },
     {
         title: "Avarta",
-        dataIndex: "avata",
+        dataIndex: "avatar",
         render: (avatar: string) => <Image width={50} src={avatar} />,
     },
 ]
@@ -33,7 +33,7 @@ const data = [
         name: "thanh cong",
         age: 18,
         major: "fe1",
-        Avatar
+        avatar: "https://i.pravatar.cc/150?img=1"
     },
     {
         key: 2,
@@ -41,6 +41,7 @@ const data = [
         name: "huyen trang",
         age: 20,
         major: "fe2",
+        avatar: "https://phunugioi.com/wp-content/uploads/2020/02/anh-phong-canh-hung-vy-nui-va-song.jpg"
     },
     {
         key: 3,
