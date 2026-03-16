@@ -1,4 +1,103 @@
 {
+  "stories": [
+    {
+      "title": "zzzz",
+      "author": "sss",
+      "image": "https://picsum.photos/300/300",
+      "description": "sddf",
+      "id": 1
+    }
+  ],
+  "category": [
+    {
+      "title": "hhhh",
+      "description": "hay vkl",
+      "active": true,
+      "id": 1
+    },
+    {
+      "title": "hhhh",
+      "description": "hay vkl",
+      "active": true,
+      "id": 2
+    },
+    {
+      "title": "dsgsfs",
+      "description": "ddd",
+      "active": true,
+      "id": 3
+    },
+    {
+      "title": "dsgsfs",
+      "description": "ddd",
+      "active": true,
+      "id": 4
+    },
+    {
+      "title": "dsgsfs",
+      "description": "ddd",
+      "active": true,
+      "id": 5
+    },
+    {
+      "title": "dsgsfs",
+      "description": "ddd",
+      "active": true,
+      "id": 6
+    },
+    {
+      "title": "dsgsfs",
+      "description": "ddd",
+      "active": true,
+      "id": 7
+    },
+    {
+      "title": "dsgsfs",
+      "description": "ddd",
+      "active": true,
+      "id": 8
+    },
+    {
+      "title": "dsgsfs",
+      "description": "ddd",
+      "active": true,
+      "id": 9
+    },
+    {
+      "title": "dsgsfs",
+      "description": "ddd",
+      "active": true,
+      "id": 10
+    },
+    {
+      "title": "dsgsfs",
+      "description": "ddd",
+      "active": true,
+      "id": 11
+    },
+    {
+      "title": "dsgsfs",
+      "description": "ddd",
+      "active": true,
+      "id": 12
+    },
+    {
+      "title": "dsgsfs",
+      "description": "hdgsgsc",
+      "active": false,
+      "id": 13
+    },
+    {
+      "title": "ww",
+      "description": "ưeee",
+      "id": 14
+    },
+    {
+      "title": "bố mày là vua",
+      "description": "truyện như cứt",
+      "id": 15
+    }
+  ],
   "products": [],
   "users": []
 }
