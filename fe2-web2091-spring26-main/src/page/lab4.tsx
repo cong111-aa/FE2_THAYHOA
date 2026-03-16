@@ -49,7 +49,12 @@ export default function CategoryForm() {
                 <Input.TextArea rows={4} />
             </Form.Item>
 
-
+            <Form.Item
+                name="active"
+                valuePropName="checked"
+            >
+                <Checkbox>Active</Checkbox>
+            </Form.Item>
 
             <Button
                 type="primary"
