@@ -1,12 +1,11 @@
 {
   "stories": [
     {
-      "title": "zzzz",
-      "author": "sss",
-      "image": "https://picsum.photos/300/300",
-      "description": "sddf",
-      "createdAt": "11/12/2006",
-      "id": 1
+      "title": "thanh cong",
+      "author": "cong day",
+      "image": "\"https://picsum.photos/300/300\"",
+      "description": "khoong cos",
+      "id": 2
     }
   ],
   "category": [
