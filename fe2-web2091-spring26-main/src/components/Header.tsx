@@ -1,61 +1,44 @@
 import { Link } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
-import { ThemeContext } from "../context/ThemeContext";
-import { useContext } from "react";
 import { Button } from "antd";
-import Login from "./Login";
+import { useAuthStore } from "../stores/useAuthStore";
 
 export default function Navbar() {
-    const context = useContext(UserContext);
-    const themeContext = useContext(ThemeContext);
-
-    if (!context || !themeContext) return null;
-
-    const { user, setUser } = context;
-    const { toggleTheme, theme } = themeContext;
+    const { user, logout } = useAuthStore();
 
     return (
         <nav className="bg-blue-600 text-white shadow">
-            <div className="max-w-6xl mx-auto px-4 h-16 flex items-center">
-
-                {/* Logo */}
-                <Link to="#" className="text-xl font-semibold">
+            <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+                <Link to="/" className="text-xl font-semibold">
                     <strong>WEB2091 App</strong>
                 </Link>
 
-                {/* Menu */}
-                <div className="flex-1 flex justify-center items-center space-x-6">
-                    <Link to="#">Trang chủ</Link>
-                    <Link to="/list">Danh sách</Link>
-                    <Link to="/add">Thêm mới</Link>
+                <div className="hidden md:flex items-center space-x-8">
+                    <Link to="/" className="hover:text-gray-200">
+                        Trang chủ
+                    </Link>
+                    <Link to="/list" className="hover:text-gray-200">
+                        Danh sách
+                    </Link>
+                    <Link to="/add" className="hover:text-gray-200">
+                        Thêm mới
+                    </Link>
                 </div>
 
-                {/* RIGHT */}
-                <div className="flex items-center space-x-3 ml-auto">
-
-                    {/* Toggle Theme */}
-                    <Button onClick={toggleTheme}>
-                        {theme === "dark" ? "🌞" : "🌙"}
-                    </Button>
-
-                    {/* Login */}
-                    {!user && <Login />}
-
-                    {/* User */}
-                    {user && (
+                <div className="hidden md:flex items-center space-x-6">
+                    {user ? (
                         <>
-                            <div className="flex items-center space-x-2">
-                                <img
-                                    src={user.avatar}
-                                    alt="avatar"
-                                    className="h-8 w-8 rounded-full border"
-                                />
-                                <span>{user.name}</span>
-                            </div>
-
-                            <Button danger onClick={() => setUser(null)}>
+                            <span>{user.email}</span>
+                            <span className="text-green-200">Đã đăng nhập</span>
+                            <Button onClick={logout} danger>
                                 Logout
                             </Button>
+                        </>
+                    ) : (
+                        <>
+                            <span>Chưa đăng nhập</span>
+                            <Link to="/register">
+                                <Button type="primary">Đăng ký</Button>
+                            </Link>
                         </>
                     )}
                 </div>
