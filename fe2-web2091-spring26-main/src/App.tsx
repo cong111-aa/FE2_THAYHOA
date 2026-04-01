@@ -1,51 +1,79 @@
-
 import { Toaster } from "react-hot-toast";
 import { Link, Route, Routes } from "react-router-dom";
-import { Form, Input, Button, Table, InputNumber, Select } from "antd";
-import { Layout } from "antd";
-import { Image } from "antd";
-import { EditStory } from "./page/lab6";
-import StoryList from "./page/lab5";
+import { Layout, ConfigProvider, Button, theme } from "antd";
+import { useContext } from "react";
+
+import Lab1 from "./page/lab1";
+import Lab2 from "./page/lab2";
+import Lab3 from "./page/lab3";
 import StoryForm from "./page/lab4";
+import StoryList from "./page/lab5";
+import EditStory from "./page/lab6";
+import Navbar from "./components/Header";
+
+import { ThemeContext } from "./context/ThemeContext";
 
 const { Header, Content, Footer } = Layout;
 
 function App() {
+  const themeContext = useContext(ThemeContext);
+  if (!themeContext) return null;
+
+  const { themeConfig } = themeContext;
+  const { token } = theme.useToken();
+
   return (
-    <>
-      <nav className="bg-blue-600 text-white shadow">
-        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="text-xl font-semibold">
-            <strong>WEB2091 App</strong>
-          </Link>
+    <ConfigProvider theme={themeConfig}>
+      <div
+        style={{
+          background: token.colorBgBase,
+          minHeight: "100vh",
+        }}
+      >
+        <Navbar />
 
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/">Trang chủ</Link>
-            <Link to="/list">Danh sách</Link>
-            <Link to="/add">Thêm mới</Link>
+        <div className="max-w-6xl mx-auto mt-10 px-4">
+          <h1 className="text-4xl font-bold mb-6 text-center">
+            Chào mừng đến với WEB2091
+          </h1>
+
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <Link to="/lab1"><Button type="primary">Lab 1</Button></Link>
+            <Link to="/lab2"><Button type="primary">Lab 2</Button></Link>
+            <Link to="/lab3"><Button type="primary">Lab 3</Button></Link>
+            <Link to="/lab4"><Button type="primary">Lab 4</Button></Link>
+            <Link to="/lab5"><Button type="primary">Lab 5</Button></Link>
           </div>
+
+          <Layout
+            style={{ background: token.colorBgContainer }}
+            className="shadow rounded-lg overflow-hidden"
+          >
+            <Header style={{ color: token.colorTextBase }}>
+              Header
+            </Header>
+
+            <Content style={{ padding: 20 }}>
+              <Routes>
+                <Route path="/" element={<Lab1 />} />
+                <Route path="/lab1" element={<Lab1 />} />
+                <Route path="/lab2" element={<Lab2 />} />
+                <Route path="/lab3" element={<Lab3 />} />
+                <Route path="/lab4" element={<StoryForm />} />
+                <Route path="/lab5" element={<StoryList />} />
+                <Route path="/edit/:id" element={<EditStory />} />
+              </Routes>
+            </Content>
+
+            <Footer className="text-center">
+              Footer
+            </Footer>
+          </Layout>
         </div>
-      </nav>
 
-      <div className="max-w-6xl mx-auto mt-10 px-4">
-        <Layout>
-          <Header style={{ color: "white" }}>Header</Header>
-
-          <Content style={{ padding: 20 }}>
-            <Routes>
-              <Route path="/" element={<StoryList />} />
-              <Route path="/list" element={<StoryList />} />
-              <Route path="/add" element={<StoryForm />} />
-              <Route path="/edit/:id" element={<EditStory />} />
-            </Routes>
-          </Content>
-
-          <Footer>Footer</Footer>
-        </Layout>
+        <Toaster />
       </div>
-
-      <Toaster />
-    </>
+    </ConfigProvider>
   );
 }
 
